@@ -12,12 +12,10 @@ namespace Class_A_Model
         {
             int count = 0;
             Model myModel = new Model("COBE");
-            Console.WriteLine(myModel.PLC.GetHETempIn());
             while (true)
             {
                 myModel.Tick();
                 count++;
-                Console.WriteLine(count);
                 Console.WriteLine("MTHV (T011): {0}", myModel.HETank.Atoms.Average(i => i.MTHV));
                 if (count % 100 ==0)
                 {
@@ -25,10 +23,10 @@ namespace Class_A_Model
                     double totalAtoms = myModel.HETank.Atoms.Count;
                     double prctDirty = dirtyAtoms/totalAtoms;
 
-                    Console.WriteLine(prctDirty + "% of the atoms in the heating tank are dirty");
+                    Console.WriteLine(prctDirty *100 + "% of the atoms in the heating tank are dirty");
                 }
                 System.Threading.Thread.Sleep(5000);
-
+                Console.WriteLine("--------------------------------------------------------------");
             }
         }
     }

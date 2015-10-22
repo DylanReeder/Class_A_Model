@@ -136,11 +136,11 @@ namespace Class_A_Model
                     CloneAtoms(HETank, AtomsToAdd);
                     HETank.CurVolume = tempVal;
                 }
-            }
-            if (HETank.CurVolume * Globals.AtomsPerGallon != (HETank.Atoms.Count))
+                if (HETank.CurVolume * Globals.AtomsPerGallon != (HETank.Atoms.Count))
                 { Console.WriteLine("WARNING:WRONG RATIO OF ATOMS TO GALLONS " + (HETank.CurVolume * Globals.AtomsPerGallon - HETank.Atoms.Count)); }
-            if (HETank.CurVolume * Globals.AtomsPerGallon == (HETank.Atoms.Count))
+                if (HETank.CurVolume * Globals.AtomsPerGallon == (HETank.Atoms.Count))
                 { Console.WriteLine("Correct RATIO OF ATOMS TO GALLONS "); }
+            }
             HExchanger.Transfer(HETank, Globals.RecirulationAmt);
             HETank.Transfer(HExchanger, Globals.RecirulationAmt);
 
